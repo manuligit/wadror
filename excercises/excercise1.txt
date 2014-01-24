@@ -1,0 +1,51 @@
+irb(main):007:0> Brewery.create name:"Brewdog", year:2007
+   (0.1ms)  begin transaction
+  SQL (1.0ms)  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", Fri, 24 Jan 2014 18:43:57 UTC +00:00], ["name", "Brewdog"], ["updated_at", Fri, 24 Jan 2014 18:43:57 UTC +00:00], ["year", 2007]]
+   (2.6ms)  commit transaction
+=> #<Brewery id: 5, name: "Brewdog", year: 2007, created_at: "2014-01-24 18:43:57", updated_at: "2014-01-24 18:43:57">
+irb(main):008:0> b = Brewery.find_by name:"Brewdog"
+  Brewery Load (0.3ms)  SELECT "breweries".* FROM "breweries" WHERE "breweries"."name" = 'Brewdog' LIMIT 1
+=> #<Brewery id: 5, name: "Brewdog", year: 2007, created_at: "2014-01-24 18:43:57", updated_at: "2014-01-24 18:43:57">
+irb(main):009:0> o = Beer.new name:"Punk IPA", style:"IPA"
+=> #<Beer id: nil, name: "Punk IPA", style: "IPA", brewery_id: nil, created_at: nil, updated_at: nil>
+irb(main):010:0> b.beers << o
+   (0.1ms)  begin transaction
+  SQL (0.8ms)  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 5], ["created_at", Fri, 24 Jan 2014 18:46:09 UTC +00:00], ["name", "Punk IPA"], ["style", "IPA"], ["updated_at", Fri, 24 Jan 2014 18:46:09 UTC +00:00]]
+   (1.3ms)  commit transaction
+  Beer Load (0.3ms)  SELECT "beers".* FROM "beers" WHERE "beers"."brewery_id" = ?  [["brewery_id", 5]]
+=> #<ActiveRecord::Associations::CollectionProxy [#<Beer id: 12, name: "Punk IPA", style: "IPA", brewery_id: 5, created_at: "2014-01-24 18:46:09", updated_at: "2014-01-24 18:46:09">]>
+irb(main):011:0> p = Beer.new name:"Nanny state", style:"lowalcohol"
+=> #<Beer id: nil, name: "Nanny state", style: "lowalcohol", brewery_id: nil, created_at: nil, updated_at: nil>
+irb(main):012:0> b.beers << p
+   (0.1ms)  begin transaction
+  SQL (0.9ms)  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 5], ["created_at", Fri, 24 Jan 2014 18:47:01 UTC +00:00], ["name", "Nanny state"], ["style", "lowalcohol"], ["updated_at", Fri, 24 Jan 2014 18:47:01 UTC +00:00]]
+   (2.6ms)  commit transaction
+=> #<ActiveRecord::Associations::CollectionProxy [#<Beer id: 12, name: "Punk IPA", style: "IPA", brewery_id: 5, created_at: "2014-01-24 18:46:09", updated_at: "2014-01-24 18:46:09">, #<Beer id: 13, name: "Nanny state", style: "lowalcohol", brewery_id: 5, created_at: "2014-01-24 18:47:01", updated_at: "2014-01-24 18:47:01">]>
+irb(main):013:0> b.raw_write_attribute
+b.raw_write_attribute
+irb(main):013:0> p.ratings.create score:10
+   (0.1ms)  begin transaction
+  SQL (0.5ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 13], ["created_at", Fri, 24 Jan 2014 18:48:05 UTC +00:00], ["score", 10], ["updated_at", Fri, 24 Jan 2014 18:48:05 UTC +00:00]]
+   (2.6ms)  commit transaction
+=> #<Rating id: 4, score: 10, beer_id: 13, created_at: "2014-01-24 18:48:05", updated_at: "2014-01-24 18:48:05">
+irb(main):014:0> p.ratings.create score:15
+   (0.1ms)  begin transaction
+  SQL (0.6ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 13], ["created_at", Fri, 24 Jan 2014 18:48:14 UTC +00:00], ["score", 15], ["updated_at", Fri, 24 Jan 2014 18:48:14 UTC +00:00]]
+   (2.7ms)  commit transaction
+=> #<Rating id: 5, score: 15, beer_id: 13, created_at: "2014-01-24 18:48:14", updated_at: "2014-01-24 18:48:14">
+irb(main):015:0> p.ratings.create score:20
+   (0.1ms)  begin transaction
+  SQL (0.6ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 13], ["created_at", Fri, 24 Jan 2014 18:48:17 UTC +00:00], ["score", 20], ["updated_at", Fri, 24 Jan 2014 18:48:17 UTC +00:00]]
+   (2.7ms)  commit transaction
+=> #<Rating id: 6, score: 20, beer_id: 13, created_at: "2014-01-24 18:48:17", updated_at: "2014-01-24 18:48:17">
+irb(main):016:0> o.ratings.create score:1
+   (0.1ms)  begin transaction
+  SQL (0.5ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 12], ["created_at", Fri, 24 Jan 2014 18:48:27 UTC +00:00], ["score", 1], ["updated_at", Fri, 24 Jan 2014 18:48:27 UTC +00:00]]
+   (1.0ms)  commit transaction
+=> #<Rating id: 7, score: 1, beer_id: 12, created_at: "2014-01-24 18:48:27", updated_at: "2014-01-24 18:48:27">
+irb(main):017:0> o.ratings.create score:10
+   (0.1ms)  begin transaction
+  SQL (0.5ms)  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 12], ["created_at", Fri, 24 Jan 2014 18:48:33 UTC +00:00], ["score", 10], ["updated_at", Fri, 24 Jan 2014 18:48:33 UTC +00:00]]
+   (2.5ms)  commit transaction
+=> #<Rating id: 8, score: 10, beer_id: 12, created_at: "2014-01-24 18:48:33", updated_at: "2014-01-24 18:48:33">
+irb(main):018:0>
