@@ -1,3 +1,5 @@
 class User < ActiveRecord::Base
-  has_many: ratings
+  include RatingAverage
+
+  has_many :ratings
 end

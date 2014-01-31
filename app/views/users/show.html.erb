@@ -4,6 +4,24 @@
   <strong>Username:</strong>
   <%= @user.username %>
 </p>
+<p>
+  Has made <%=pluralize( @user.ratings.count,'rating' ) %>.
+  Average rating is <%= @user.average_rating %>
+</p>
+
+<p>
+  <strong>ratings</strong>
+    <table>
+      <tbody>
+      <ul>
+        <% @user.ratings.each do |rating| %>
+            <li> <%= rating %> <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %> </li>
+        <% end %>
+      </ul>
+      </tbody>
+
+    </table>
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
