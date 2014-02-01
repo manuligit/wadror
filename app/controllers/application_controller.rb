@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
 
   def current_user
     return nil if session[:user_id].nil?
-    User.find(session[:user_id])
+      ##tarkistetaan, onko käyttäjää olemassa:
+      if User.exists?(session[:user_id])
+        User.find(session[:user_id])
+      else
+        return nil
+      end
   end
 end
