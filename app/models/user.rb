@@ -3,7 +3,14 @@ class User < ActiveRecord::Base
   has_many :ratings
   has_many :beers, through: :ratings
 
+  has_secure_password
+
   validates :username, uniqueness: true
   validates :username, length: { minimum: 3, maximum: 15 }
+  validates :password, length: { minimum: 4 }, format: { with: /(?=.*\d+)(?=.*[A-Z]+).+/ }
+  ## regex tarkistaa koko stringin, löytyykö yksi numero ja sitten yksi iso kirjain, väh. yksi
+
+  # että salasanan pituus on vähintää 4 merkkiä, ja että salasana sisältää vähintään
+  # yhden ison kirjaimen (voit unohtaa skandit) ja yhden numeron
 
 end
