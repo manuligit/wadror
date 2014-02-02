@@ -18,4 +18,9 @@ b2.beers.create name:"X Porter", style:"Porter"
 b3.beers.create name:"Hefezeizen", style:"Weizen"
 b3.beers.create name:"Helles", style:"Lager"
 
-u1 = User.create name:"Jani" password:"ASDF1"
+u1 = User.create name:"Jani", password:"ASDF1"
+u1 = User.create name:"admin" password:"admin"
+
+bc1 = BeerClub.create name:"Itä-Helsingin raittiusseura", founded:2005, city:"Helsinki"
+bc2 = BeerClub.create name:"Oulun olutsiepat", founded:2005, city:"Oulu"
+

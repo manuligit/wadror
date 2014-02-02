@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   # että salasanan pituus on vähintää 4 merkkiä, ja että salasana sisältää vähintään
   # yhden ison kirjaimen (voit unohtaa skandit) ja yhden numeron
 
+  def to_s
+    "#{name}"
+  end
+
 end
