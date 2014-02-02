@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   # yhden ison kirjaimen (voit unohtaa skandit) ja yhden numeron
 
   def to_s
-    "#{name}"
+    "#{username}"
   end
 
 end

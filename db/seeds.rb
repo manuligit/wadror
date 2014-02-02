@@ -23,4 +23,3 @@ u1 = User.create name:"admin" password:"admin"
 
 bc1 = BeerClub.create name:"Itä-Helsingin raittiusseura", founded:2005, city:"Helsinki"
 bc2 = BeerClub.create name:"Oulun olutsiepat", founded:2005, city:"Oulu"
-

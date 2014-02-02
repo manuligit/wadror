@@ -4,7 +4,7 @@
   <tbody>
       <ul>
         <% @ratings.each do |rating| %>
-            <li> <%= rating %> <%= link_to rating.user, rating.user_path %> </li>
+            <li> <%= rating %> <%= link_to rating.user, rating.user %> </li>
         <% end %>
       </ul>
   <%= link_to 'New rating', new_rating_path %>
