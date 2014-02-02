@@ -2,12 +2,13 @@
 <p> Number of ratings: <%= @ratings.count %> </p>
 <table>
   <tbody>
-  <ul>
-    <% @ratings.each do |rating| %>
-        <li> <%= rating %> <%= link_to rating.user.username, rating.user %> </li>
-    <% end %>
-  </ul>
-
+  <% unless @ratings.empty? %>
+      <ul>
+        <% @ratings.each do |rating| %>
+            <li> <%= rating %> <%= link_to rating.user.username, rating.user_path %> </li>
+        <% end %>
+      </ul>
+  <% end %>
   <%= link_to 'New rating', new_rating_path %>
   </tbody>
 
