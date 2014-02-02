@@ -9,6 +9,17 @@
   Average rating is <%= @user.average_rating %>
 </p>
 
+
+<!-- If user has beer clubs, show the following list: -->
+<p>
+  <% if @user.beer_clubs.exists? %>
+      Member of
+      <% @user.beer_clubs.each do |beer_club| %>
+          <%= link_to beer_club, beer_club %>
+      <% end %>
+  <% end %>
+</p>
+
 <p>
   <strong>ratings</strong>
     <table>
@@ -27,6 +38,8 @@
 
     </table>
 </p>
+
+
 
 <%= link_to 'Back', users_path %>
 <% if @user == current_user %> |

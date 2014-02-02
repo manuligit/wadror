@@ -5,9 +5,11 @@ class Brewery < ActiveRecord::Base
   has_many :ratings, through: :beers
 
   validates :name, length: { minimum: 1 }
-  validates :yeah, numericality: { greater_than_or_equal_to: 1042,
+  validates :year, numericality: { greater_than_or_equal_to: 1042,
                                     less_than_or_equal_to: 2014,
                                     only_integer: true }
+
+  ##calls a new Time method so the date should be todays date:
 
 
 end
