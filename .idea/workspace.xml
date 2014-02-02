@@ -7,8 +7,7 @@
     <list default="true" id="219676e5-451f-495c-95e4-c4452c9e5559" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/memberships/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/memberships/_form.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/beer_club.rb" afterPath="$PROJECT_DIR$/app/models/beer_club.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/brewery.rb" afterPath="$PROJECT_DIR$/app/models/brewery.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/beer_clubs/show.html.erb" afterPath="$PROJECT_DIR$/app/views/beer_clubs/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/memberships_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/memberships_controller.rb" />
     </list>
     <ignored path="ratebeer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,16 +33,25 @@
       <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/memberships/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="441" selection-end="441" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="615">
+            <state line="17" column="0" selection-start="553" selection-end="553" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="585">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brewery.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="brewery.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/brewery.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="37" selection-start="237" selection-end="237" vertical-scroll-proportion="0.15765765" vertical-offset="0" max-vertical-offset="666">
+            <state line="7" column="37" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rating.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/rating.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="27" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
               <folding />
             </state>
           </provider>
@@ -61,16 +69,7 @@
       <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/beer_clubs/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="4" selection-start="88" selection-end="88" vertical-scroll-proportion="1.4166666" vertical-offset="109" max-vertical-offset="705">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/ratings/new.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="21" selection-start="367" selection-end="367" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="390">
+            <state line="5" column="4" selection-start="88" selection-end="88" vertical-scroll-proportion="-0.5" vertical-offset="63" max-vertical-offset="705">
               <folding />
             </state>
           </provider>
@@ -94,10 +93,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="beer_club.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="beer_club.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/beer_club.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="18" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+            <state line="8" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="0.18018018" vertical-offset="0" max-vertical-offset="666">
               <folding />
             </state>
           </provider>
@@ -106,7 +105,7 @@
       <file leaf-file-name="memberships_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/memberships_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="746" selection-end="746" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305">
+            <state line="38" column="49" selection-start="1087" selection-end="1087" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1320">
               <folding />
             </state>
           </provider>
@@ -171,11 +170,11 @@
         <option value="$PROJECT_DIR$/app/views/beer_clubs/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
         <option value="$PROJECT_DIR$/app/models/membership.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/memberships_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/beer_clubs/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/beer_club.rb" />
-        <option value="$PROJECT_DIR$/app/views/memberships/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/models/brewery.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/memberships_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/memberships/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/beer_club.rb" />
       </list>
     </option>
   </component>
@@ -905,13 +904,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/rating.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="27" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="45" selection-start="203" selection-end="203" vertical-scroll-proportion="0.11261261" vertical-offset="0" max-vertical-offset="666">
@@ -991,30 +983,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/membership.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="18" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/ratings/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="21" selection-start="367" selection-end="367" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="390">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/beer_clubs/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="4" selection-start="88" selection-end="88" vertical-scroll-proportion="1.4166666" vertical-offset="109" max-vertical-offset="705">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/beer_clubs/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="14" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="619">
           <folding />
         </state>
       </provider>
@@ -1026,6 +997,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/beer_clubs/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="4" selection-start="88" selection-end="88" vertical-scroll-proportion="-0.5" vertical-offset="63" max-vertical-offset="705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/ratings/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="300">
@@ -1033,16 +1011,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/beer_club.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/rating.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="18" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+        <state line="10" column="27" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/memberships_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/beer_clubs/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="746" selection-end="746" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305">
+        <state line="0" column="14" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="619">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/memberships/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="553" selection-end="553" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/brewery.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="37" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
           <folding />
         </state>
       </provider>
@@ -1054,16 +1046,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/memberships/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/memberships_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="441" selection-end="441" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="615">
+        <state line="38" column="49" selection-start="1087" selection-end="1087" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1320">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/brewery.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/membership.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="37" selection-start="237" selection-end="237" vertical-scroll-proportion="0.15765765" vertical-offset="0" max-vertical-offset="666">
+        <state line="2" column="18" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/beer_club.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="0.18018018" vertical-offset="0" max-vertical-offset="666">
           <folding />
         </state>
       </provider>
