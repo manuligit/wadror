@@ -36,4 +36,30 @@ describe "Rating" do
     expect(page).to have_content('Karhu 30 Pekka')
 
   end
+
+  it "shows every rating on userpage" do
+    FactoryGirl.create :rating, user:user, beer:beer1, score:20
+    FactoryGirl.create :rating, user:user, beer:beer2, score:30
+
+    visit user_path(user)
+
+    expect(page).to have_content 'Has made 2 ratings'
+    expect(page).to have_content('iso 3 20')
+    expect(page).to have_content('Karhu 30')
+  end
+
+  it "deleting removes rating from database" do
+    FactoryGirl.create :rating, user:user, beer:beer1, score:10
+    FactoryGirl.create :rating, user:user, beer:beer2, score:30
+
+    visit user_path(user)
+
+    ##klikataan ensimmäistä delete
+    page.first(:link, "delete").click
+
+    visit user_path(user)
+    expect(page).to have_content 'Has made 1 rating'
+    expect(page).to have_content('Karhu 30')
+  end
+
 end
