@@ -15,6 +15,12 @@ class User < ActiveRecord::Base
   # että salasanan pituus on vähintää 4 merkkiä, ja että salasana sisältää vähintään
   # yhden ison kirjaimen (voit unohtaa skandit) ja yhden numeron
 
+  def favorite_beer
+    return nil if ratings.empty?   # palautetaan nil jos reittauksia ei ole
+    ratings.order(score: :desc).limit(1).first.beer
+  end
+
+
   def to_s
     "#{username}"
   end

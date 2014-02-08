@@ -19,6 +19,12 @@ group :test do
   gem 'rspec-rails', '~> 2.14.1'
 end
 
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+end
+
 gem 'byebug', group: [:development, :test]
 
 # Use SCSS for stylesheets
