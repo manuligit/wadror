@@ -1,10 +1,18 @@
 language: ruby
-
 rvm:
- - 2.0.0
-
+- 2.0.0
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: Ltt9VvSpXzeUJOx+w2xOXBLRQqDPa6YEPaQKvtf+2rHCqLQech/N+NDPhfz6pQBHSxfIHUyJUDqrvfdjjxXbnpiPMOT79uApPH1e6G6Rkr1Wtzp2Bl9vqPwakZYlH3JpZveqsy+fhThuE42DYgQx5cOOfWfsLD6E+bSFHGUiEbQ=
+  run:
+    - "rake db:migrate"
+    - restart
+  app: radiant-reaches-3412
+  on:
+    repo: manuligit/wadror

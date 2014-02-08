@@ -60,7 +60,7 @@ describe User do
 
       expect(user.favorite_beer).to eq(beer)
     end
-  
+
     it "is the one with highest rating if several rated" do
       create_beer_with_rating(10, user)
       best = create_beer_with_rating(25, user)
