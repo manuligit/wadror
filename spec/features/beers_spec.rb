@@ -29,6 +29,7 @@ describe "Beer" do
         click_button('Create Beer')
       }.to change{Beer.count}.by(0)
 
+
       # expect(current_path).to eq(new_beer_path)
       # testataan purkasti beers_path:ia new_beer_path:in sijaan koska modelissa on määritelty render:new etteivät
       # formit resettoituisi
@@ -38,13 +39,5 @@ describe "Beer" do
 
 
   end
-
-
-
-  # varmistaa, että järjestelmään voidaan lisätä www-sivun kautta olut,
-  # jos oluen nimikenttä saa validin arvon (eli se on epätyhjä). Tee myös
-  # testi, joka varmistaa, että selain palaa oluen luomissivulle ja näyttää
-  # asiaan kuuluvan virheilmoituksen jos oluen nimi ei ole validi, ja että
-  # tälläisessä tapauksessa tietokantaan ei talletu mitään.
 
 end
