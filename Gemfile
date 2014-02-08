@@ -15,6 +15,10 @@ group :production do
    gem 'rails_12factor' 
 end
 
+group :test do
+  gem 'rspec-rails', '~> 2.14.1'
+end
+
 gem 'byebug', group: [:development, :test]
 
 # Use SCSS for stylesheets

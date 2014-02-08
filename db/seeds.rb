@@ -10,13 +10,13 @@ b1 = Brewery.create name:"Koff", year:1897
 b2 = Brewery.create name:"Malmgard", year:2001
 b3 = Brewery.create name:"Weihenstephaner", year:1042
 
-b1.beers.create name:"Iso 3", style:"Lager"
-b1.beers.create name:"Karhu", style:"Lager"
-b1.beers.create name:"Tuplahumala", style:"Lager"
-b2.beers.create name:"Huvila Pale Ale", style:"Pale Ale"
-b2.beers.create name:"X Porter", style:"Porter"
-b3.beers.create name:"Hefezeizen", style:"Weizen"
-b3.beers.create name:"Helles", style:"Lager"
+b1.beers.create name:"Iso 3", style:"Lager", user_id:1, brewery_id:1
+b1.beers.create name:"Karhu", style:"Lager", user_id:1, brewery_id:1
+b1.beers.create name:"Tuplahumala", style:"Lager", user_id:1, brewery_id:1
+b2.beers.create name:"Huvila Pale Ale", style:"Pale Ale", user_id:1, brewery_id:2
+b2.beers.create name:"X Porter", style:"Porter", user_id:1, brewery_id:2
+b3.beers.create name:"Hefezeizen", style:"Weizen", user_id:1, brewery_id:2
+b3.beers.create name:"Helles", style:"Lager", user_id:1, brewery_id:2
 
 u1 = User.create name:"Jani", password:"ASDF1"
 u1 = User.create name:"admin" password:"admin"

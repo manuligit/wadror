@@ -5,6 +5,7 @@ class Beer < ActiveRecord::Base
   belongs_to :brewery
 
   validates :name, length: { minimum: 1 }
+  validates :style, presence: true
 
   def to_s
     "#{name} #{brewery.name}"
