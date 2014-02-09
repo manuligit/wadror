@@ -69,33 +69,6 @@ describe User do
       expect(user.favorite_beer).to eq(best)
     end
   end
-
-  describe "favorite brewery" do
-    let(:user){FactoryGirl.create(:user) }
-
-    it "has method for determining one" do
-      user.should respond_to :favorite_brewery
-    end
-
-    it "without ratings does not have one" do
-      expect(user.favorite_brewery).to eq(nil)
-    end
-
-    it "is the only rated if only one rating" do
-      beer = create_beer_with_rating(10, user)
-
-      expect(user.favorite_brewery).to eq(beer.brewery.to_s)
-    end
-
-    it "is the one with highest average if several rated" do
-      create_beer_with_rating(10, user)
-      best = create_beer_with_rating(25, user)
-      create_beer_with_rating(7, user)
-
-      expect(user.favorite_brewery).to eq(best.brewery.to_s)
-    end
-  end
-
 end
 
 def create_beer_with_rating(score, user)
