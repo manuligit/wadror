@@ -3,11 +3,15 @@ require 'spec_helper'
 include OwnTestHelper
 
 describe "Beer" do
+  let!(:user) { FactoryGirl.create :user }
+
   before :each do
     FactoryGirl.create :beer
+    sign_in(username:"Pekka", password:"Foobar1")
   end
 
-  describe "create a new beer" do
+
+  describe "creating" do
     it "can create a valid beer" do
       visit new_beer_path
       fill_in('beer_name', with:'HC IPA')
