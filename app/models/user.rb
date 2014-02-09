@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+
+
   validates :username, uniqueness: true
   validates :username, length: { minimum: 3, maximum: 15 }
   validates :password, length: { minimum: 4 }, format: { with: /(?=.*\d+)(?=.*[A-Z]+).+/ }
@@ -19,7 +21,6 @@ class User < ActiveRecord::Base
     return nil if ratings.empty?   # palautetaan nil jos reittauksia ei ole
     ratings.order(score: :desc).limit(1).first.beer
   end
-
 
   def to_s
     "#{username}"

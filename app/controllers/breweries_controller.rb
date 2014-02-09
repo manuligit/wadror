@@ -11,6 +11,7 @@ class BreweriesController < ApplicationController
   # GET /breweries/1
   # GET /breweries/1.json
   def show
+
   end
 
   # GET /breweries/new
@@ -56,9 +57,15 @@ class BreweriesController < ApplicationController
   # DELETE /breweries/1.json
   def destroy
     @brewery.destroy
+
+    if current_user.nil?
+      redirect_to signin_path, notice:'you should be signed in'
+    else
+
     respond_to do |format|
       format.html { redirect_to breweries_url }
       format.json { head :no_content }
+      end
     end
   end
   private

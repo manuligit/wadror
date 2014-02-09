@@ -10,7 +10,6 @@ describe "Beer" do
     sign_in(username:"Pekka", password:"Foobar1")
   end
 
-
   describe "creating" do
     it "can create a valid beer" do
       visit new_beer_path
