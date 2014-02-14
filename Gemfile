@@ -5,6 +5,8 @@ gem 'rails', '4.0.2'
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 
+gem 'httparty'
+
 # Don't use sqlite3 as the database for Active Record
 group :development, :test do
   gem 'sqlite3'
