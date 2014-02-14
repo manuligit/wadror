@@ -26,81 +26,35 @@ class User < ActiveRecord::Base
     "#{username}"
   end
 
-
-  ##favorite_style, joka palauttaa tyylin, jonka oluet ovat saaneet käyttäjältä keskimäärin korkeimman reittauksen.
-  # Lisää käyttäjän sivulle tieto käyttäjän mielityylistä.
-
-  ##tässä ruma ja ihan liian pitkä purkkaratkaisu, mutta tulipahan tehtyä:
-  def favorite_style
-    return nil if ratings.empty?
-    #haetaan ratingit, lisää scoret stylen mukaan palauttaa parhaan stylen
-    else
-    styles_and_scores = [] #taulukko, johon kootaa muuttujat
-    tyylit = []
-    # otetaan style beer_id:n avulla beereistä:
-    ratings.each do |r|
-      styles_and_scores << { :style => Beer.find_by(id: r.beer_id).style, :score => r.score }
-      tyylit << Beer.find_by(id: r.beer_id).style
-    end
-
-    max = 0
-    highest_average_style = ''
-
-    tyylit.uniq.each do |t|
-      stylet = styles_and_scores.find_all { |s|
-        s[:style] == t
-      }
-
-      total_score = 0
-
-      stylet.each { |s|
-        total_score += s[:score]
-      }
-
-      if (total_score/stylet.count) > max
-        max = total_score
-        highest_average_style = t
-      end
-    end
-
-    return highest_average_style
-
-  end
-
-  ##jälleen krapulainen copypaste-metodi mutta ainakin se toimii:
   def favorite_brewery
     return nil if ratings.empty?
-      #haetaan ratingit, lisää scoret stylen mukaan palauttaa parhaan stylen
-  else
-    breweries_and_scores = [] #taulukko, johon kootaa muuttujat
-    panimot = []
-    # otetaan style beer_id:n avulla beereistä:
-    ratings.each do |r|
-      breweries_and_scores << { :brewery => Beer.find_by(id: r.beer_id).brewery.name, :score => r.score }
-      panimot << Beer.find_by(id: r.beer_id).brewery.name
-    end
-
-    max = 0
-    highest_average_brewery = ''
-
-    panimot.uniq.each do |t|
-      skoret = breweries_and_scores.find_all { |s|
-        s[:brewery] == t
-      }
-
-      total_score = 0
-
-      skoret.each { |s|
-        total_score += s[:score]
-      }
-
-      if (total_score/skoret.count) > max
-        max = total_score
-        highest_average_brewery = t
-      end
-    end
-
-    return highest_average_brewery.to_s
+    brewery_ratings = rated_breweries.inject([]) { |set, brewery| set << [brewery, brewery_average(brewery) ] }
+    brewery_ratings.sort_by{ |r| r.last }.last.first
   end
 
+  def favorite_style
+    return nil if ratings.empty?
+    style_ratings = rated_styles.inject([]) { |set, style| set << [style, style_average(style) ] }
+    style_ratings.sort_by{ |r| r.last }.last.first
+  end
+
+  #private
+
+  def rated_styles
+    ratings.map{ |r| r.beer.style }.uniq
+  end
+
+  def style_average(style)
+    ratings_of_style = ratings.select{ |r| r.beer.style==style }
+    ratings_of_style.inject(0.0){ |sum, r| sum+r.score}/ratings_of_style.count
+  end
+
+  def rated_breweries
+    ratings.map{ |r| r.beer.brewery}.uniq
+  end
+
+  def brewery_average(brewery)
+    ratings_of_brewery = ratings.select{ |r| r.beer.brewery==brewery }
+    ratings_of_brewery.inject(0.0){ |sum, r| sum+r.score}/ratings_of_brewery.count
+  end
 end

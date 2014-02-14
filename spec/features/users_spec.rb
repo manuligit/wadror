@@ -3,15 +3,7 @@ require 'spec_helper'
 include OwnTestHelper
 
 describe "User" do
-  let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
-  let!(:beer1) { FactoryGirl.create :beer, name:"iso 3", style:"Lager", brewery:brewery }
-  let!(:beer2) { FactoryGirl.create :beer, name:"Karhu", style:"Lager", brewery:brewery }
-  let!(:user2) { FactoryGirl.create :user2 }
-
-
-  before :each do
-    FactoryGirl.create :user
-  end
+  let!(:user){FactoryGirl.create :user}
 
   describe "who has signed up" do
     it "can signin with right credentials" do
@@ -40,23 +32,17 @@ describe "User" do
     }.to change{User.count}.by(1)
   end
 
-  it "has favorite style" do
-    FactoryGirl.create :rating, user:user2, beer:beer1, score:20
-    FactoryGirl.create :rating, user:user2, beer:beer2, score:30
+  it "favorite beer, style and brewery shown at page" do
+    koff = FactoryGirl.create(:brewery, name:"Koff")
+    best = FactoryGirl.create(:beer, name:"iso 3", style:"Lager", brewery:koff)
+    FactoryGirl.create(:rating, score:30, beer:best, user:user)
 
-    sign_in(username:"Jani", password:"Foobar1")
+    create_beers_with_ratings(10, 15, 20, user)
 
+    visit user_path(user)
 
-    expect(page).to have_content 'Favourite style is Lager'
+    expect(page).to have_content 'Favorite beer: iso 3'
+    expect(page).to have_content 'Favorite brewery: Koff'
+    expect(page).to have_content 'Preferred style: Lager'
   end
-
-  it "has favorite brewery" do
-    FactoryGirl.create :rating, user:user2, beer:beer1, score:20
-    FactoryGirl.create :rating, user:user2, beer:beer2, score:30
-    sign_in(username:"Jani", password:"Foobar1")
-
-    expect(page).to have_content 'Favourite brewery is Koff'
-  end
-
-
 end
