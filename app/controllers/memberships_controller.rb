@@ -26,24 +26,26 @@ class MembershipsController < ApplicationController
   # POST /memberships
   # POST /memberships.json
   def create
-    ##checks, if membership already exists on given parameters and if it does, doesn't create new membership:
+    @membership = Membership.new(membership_params)
+    @membership.user = current_user
     @memberships = Membership.all
-    @membership = Membership.new params.require(:membership).permit(:beer_club_id, :user_id)
 
     if @memberships.where(user_id: current_user.id).where(beer_club_id: params[:membership][:beer_club_id]).any?
       @beer_clubs = BeerClub.all
       render :new
     else
-      ##@membership = Membership.new(membership_params)
+      respond_to do |format|
         if @membership.save
-          current_user.memberships << @membership
-          redirect_to beer_clubs_path
+          @beerclub = BeerClub.all.find_by(@membership.beer_club_id)
+          format.html { redirect_to @beerclub, notice: "#{current_user} welcome to the club" }
+          format.json { render action: 'show', status: :created, location: @beer_clubs }
         else
-          @beer_clubs = BeerClub.all
+          @clubs = BeerClub.all.reject{ |b| b.members.include? current_user }
           format.html { render action: 'new' }
           format.json { render json: @membership.errors, status: :unprocessable_entity }
         end
       end
+    end
   end
 
   # PATCH/PUT /memberships/1
