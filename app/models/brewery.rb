@@ -13,5 +13,8 @@ class Brewery < ActiveRecord::Base
                                     only_integer: true }
 
 
+  def to_s
+    name
+  end
 
 end

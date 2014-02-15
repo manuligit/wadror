@@ -15,7 +15,12 @@
   <%= @beer_club.city %>
 </p>
 
-<!-- If beer club has members, show the following list: -->
+
+<%= form_for(@membership) do |f| %>
+    <%= f.hidden_field :beer_club_id %>
+
+    <%= f.submit value:"join the club" %>
+<% end %>
 
 <p>
   <% if @beer_club.users.exists? %>
@@ -35,6 +40,8 @@
 
   <% end %>
 </p>
+
+
 
 
 <%= link_to 'Edit', edit_beer_club_path(@beer_club) %> |

@@ -40,7 +40,8 @@ class MembershipsController < ApplicationController
           redirect_to beer_clubs_path
         else
           @beer_clubs = BeerClub.all
-          render :new
+          format.html { render action: 'new' }
+          format.json { render json: @membership.errors, status: :unprocessable_entity }
         end
       end
   end
