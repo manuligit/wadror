@@ -1,5 +1,8 @@
 <h1><%= @name.to_s %></h1>
 
 <p>
-  <%= @street.to_s %>
+  <%= @street.to_s %> <br>
+  <%= @zip.to_s %> <%= @city.to_s %>
 </p>
+
+<iframe width="800" height="600" frameborder="0" src="<%=@map%>"> </iframe>
