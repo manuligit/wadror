@@ -14,17 +14,16 @@ describe "Beer" do
     it "can create a valid beer" do
       visit new_beer_path
       fill_in('beer_name', with:'HC IPA')
-      fill_in('beer_style', with:'IPA')
       ##dropdown-valinta:
-      page.find_by_id('beer_brewery_id').find("option[value='1']").select_option
+      ##page.find_by_id('beer_brewery_id').find("option[value='1']").select_option
       expect{
         click_button('Create Beer')
       }.to change{Beer.count}.by(1)
+
     end
 
     it "is redirected back to form when creating fails" do
       visit new_beer_path
-      fill_in('beer_style', with:'IPA')
       ##dropdown-valinta:
       page.find_by_id('beer_brewery_id').find("option[value='1']").select_option
       ##odotetaan ettei tietokantaan tapahdu mitään ja ettei beer.count vaihdu:

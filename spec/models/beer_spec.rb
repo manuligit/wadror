@@ -3,14 +3,16 @@ require 'spec_helper'
 describe Beer do
 
   it "has name and style set correctly" do
-    beer = Beer.new name:"Punk ipa", style:"IPA"
+    style = Style.new name:"Lager", description:"Superb"
+    beer = Beer.new name:"Punk ipa", style:style
 
     beer.name.should == "Punk ipa"
-    beer.style.should == "IPA"
+    beer.style.should == style
   end
 
   it "is not saved without a name" do
-    beer = Beer.create style:"IPA"
+    style = Style.new name:"Lager", description:"Superb"
+    beer = Beer.create style:style
 
     expect(beer).not_to be_valid
     expect(Beer.count).to eq(0)

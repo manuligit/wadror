@@ -76,6 +76,8 @@ describe User do
 
   describe "favorite style" do
     let(:user){FactoryGirl.create(:user) }
+    let(:style){FactoryGirl.create(:style) }
+
 
     it "has method for determining one" do
       user.should respond_to :favorite_style
@@ -86,17 +88,19 @@ describe User do
     end
 
     it "is the style of the only rated if one rating" do
-      create_beers_with_ratings_and_style(10, "Lager", user)
+      create_beers_with_ratings_and_style(10, style, user)
 
-      expect(user.favorite_style).to eq("Lager")
+      expect(user.favorite_style.name).to eq("Lager")
     end
 
     it "is the style with highest average rating if several rated" do
-      create_beers_with_ratings_and_style(10, 20, 15, "Lager", user)
-      create_beers_with_ratings_and_style(35, "IPA", user)
-      create_beers_with_ratings_and_style(25, 20, 15, "Porter", user)
+      ##todo: correct (not different beers)
+      style2 = FactoryGirl.create(:style2)
+      create_beers_with_ratings_and_style(10, 20, 15, style, user)
+      create_beers_with_ratings_and_style(50, style2, user)
+      create_beers_with_ratings_and_style(25, 20, 15, style, user)
 
-      expect(user.favorite_style).to eq("IPA")
+      expect(user.favorite_style.name).to eq("Lager")
     end
   end
 

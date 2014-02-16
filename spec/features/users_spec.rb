@@ -33,8 +33,9 @@ describe "User" do
   end
 
   it "favorite beer, style and brewery shown at page" do
+    style = FactoryGirl.create(:style)
     koff = FactoryGirl.create(:brewery, name:"Koff")
-    best = FactoryGirl.create(:beer, name:"iso 3", style:"Lager", brewery:koff)
+    best = FactoryGirl.create(:beer, name:"iso 3", style:style, brewery:koff)
     FactoryGirl.create(:rating, score:30, beer:best, user:user)
 
     create_beers_with_ratings(10, 15, 20, user)
