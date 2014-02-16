@@ -4,6 +4,14 @@
   <%= @style.description %> <br>
 </p>
 
-<% @style.beers.each do |beer| %>
-    <li> <%= link_to beer.name, beer %> </li>
-<% end %>
+
+<h2> beers </h2>
+<table>
+  <tbody>
+  <ul>
+    <% @style.beers.each do |beer| %>
+        <li> <%= link_to beer.name, beer %> by <%= link_to beer.brewery, beer.brewery %></li>
+    <% end %>
+   </ul>
+  </tbody>
+</table>
