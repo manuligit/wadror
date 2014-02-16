@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe "Places" do
   it "if one is returned by the API, it is shown at the page" do
-    BeermappingApi.stub(:places_in).with("kumpula").and_return(
-        [ Place.new(:name => "Oljenkorsi") ]
-    )
+    BeermappingApi.stub(:places_in).with("kumpula").and_return( [  Place.new(:name => "Oljenkorsi", :id => 1) ] )
 
     visit places_path
     fill_in('city', with: 'kumpula')
@@ -15,7 +13,7 @@ describe "Places" do
 
   it "if two is returned by the API, it is shown at the page" do
     BeermappingApi.stub(:places_in).with("kumpula").and_return(
-        [ Place.new(:name => "Oljenkorsi"), Place.new(:name => "Olkipukki") ],
+        [ Place.new(:name => "Oljenkorsi", :id => 1), Place.new(:name => "Olkipukki", :id => 1) ],
     )
     visit places_path
     fill_in('city', with: 'kumpula')
@@ -30,7 +28,7 @@ describe "Places" do
 
   it "if none is returned by the API, it is shown at the page" do
     BeermappingApi.stub(:places_in).with("kumpula").and_return(
-        [ ],
+        [ ]
     )
     visit places_path
     fill_in('city', with: 'kumpula')
