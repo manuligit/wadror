@@ -24,6 +24,10 @@ Ratebeer::Application.routes.draw do
 
   get 'signin', to: 'sessions#new'
   get 'signout', to: 'sessions#destroy'
+  get 'beerlist', to:'beers#list'
+
+  get 'ngbeerlist', to:'beers#nglist'
+  get 'brewerylist', to:'breweries#list'
 
 
   #get 'ratings', to: 'ratings#index'

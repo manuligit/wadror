@@ -31,6 +31,9 @@ class BreweriesController < ApplicationController
   def edit
   end
 
+  def list
+  end
+
   # POST /breweries
   # POST /breweries.json
   def create

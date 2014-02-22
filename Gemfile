@@ -7,6 +7,8 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'httparty'
 
+gem 'jquery-turbolinks'
+
 gem "rails-settings-cached", "0.3.1"
 
 # Don't use sqlite3 as the database for Active Record
