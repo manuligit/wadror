@@ -11,6 +11,11 @@ gem 'jquery-turbolinks'
 
 gem "rails-settings-cached", "0.3.1"
 
+gem 'bootstrap-sass'
+group :development do
+  gem 'rails_layout'
+end
+
 # Don't use sqlite3 as the database for Active Record
 group :development, :test do
   gem 'sqlite3'

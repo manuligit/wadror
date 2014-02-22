@@ -11,10 +11,9 @@
     </div>
     <% end %>
 
-    <!-- TODO: Show only beer clubs one isn't a member already  -->
 
     <%= f.select :beer_club_id, options_from_collection_for_select(@beer_clubs, :id, :to_s) %>
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary" %>
 
  <!--
   <div class="field">
