@@ -9,9 +9,7 @@ class SessionsController < ApplicationController
     if user.nil? or not user.authenticate params[:password]
       redirect_to :back, notice: "username and password do not match"
     else
-      # talletetaan sessioon kirjautuneen käyttäjän id (jos käyttäjä on olemassa)
       session[:user_id] = user.id unless user.nil?
-      # uudelleen ohjataan käyttäjä omalle sivulleen
       redirect_to user, notice: "Welcome back!"
     end
   end
