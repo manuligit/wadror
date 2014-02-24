@@ -1,30 +1,32 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+users = 200           # jos koneesi on hidas, riittää esim 100
+breweries = 100       # jos koneesi on hidas, riittää esim 50
+beers_in_brewery = 40
+ratings_per_user = 30
 
-b1 = Brewery.create name:"Koff", year:1897
-b2 = Brewery.create name:"Malmgard", year:2001
-b3 = Brewery.create name:"Weihenstephaner", year:1042
+(1..users).each do |i|
+  User.create! username:"user_#{i}", password:"Passwd1", password_confirmation:"Passwd1"
+end
 
-b1.beers.create name:"Iso 3", style:"Lager", user_id:1, brewery_id:1
-b1.beers.create name:"Karhu", style:"Lager", user_id:1, brewery_id:1
-b1.beers.create name:"Tuplahumala", style:"Lager", user_id:1, brewery_id:1
-b2.beers.create name:"Huvila Pale Ale", style:"Pale Ale", user_id:1, brewery_id:2
-b2.beers.create name:"X Porter", style:"Porter", user_id:1, brewery_id:2
-b3.beers.create name:"Hefezeizen", style:"Weizen", user_id:1, brewery_id:2
-b3.beers.create name:"Helles", style:"Lager", user_id:1, brewery_id:2
+(1..breweries).each do |i|
+  Brewery.create! name:"brewery_#{i}", year:1900, active:true
+end
 
+bulk = Style.create! name:"bulk", description:"cheap, not much taste"
 
+Brewery.all.each do |b|
+  n = rand(beers_in_brewery)
+  (1..n).each do |i|
+    beer = Beer.create! name:"beer #{b.id} -- #{i}", style:bulk
+    b.beers << beer
+  end
+end
 
-u1 = User.create name:"Jani", password:"ASDF1"
-u1 = User.create name:"admin" password:"admin"
-
-bc1 = BeerClub.create name:"Itä-Helsingin raittiusseura", founded:2005, city:"Helsinki"
-bc2 = BeerClub.create name:"Oulun olutsiepat", founded:2005, city:"Oulu"
-
-bc1 << u1
-bc2 << u2
+User.all.each do |u|
+  n = rand(ratings_per_user)
+  beers = Beer.all.shuffle
+  (1..n).each do |i|
+    r = Rating.new score:(1+rand(50))
+    beers[i].ratings << r
+    u.ratings << r
+  end
+end

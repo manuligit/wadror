@@ -6,7 +6,7 @@
 </p>
 <p>
   Has made <%=pluralize( @user.ratings.count,'rating' ) %>.
-  Average rating is <%= @user.average_rating %> <br>
+  Average rating is <%= round(@user.average_rating) %> <br>
 </p>
 
 
